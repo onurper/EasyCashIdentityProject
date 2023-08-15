@@ -20,7 +20,6 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 
         public IActionResult Index()
         {
-
             return View();
         }
         [HttpPost]
