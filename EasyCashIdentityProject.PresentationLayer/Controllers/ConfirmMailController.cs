@@ -21,11 +21,16 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(ConfirmMailViewModel confirmMailViewModel)
         {
-            var value = TempData["Mail"].ToString();
-            var user = await _userManager.FindByEmailAsync(value);
+            var user = await _userManager.FindByEmailAsync(confirmMailViewModel.Mail);
 
             if (user.ConfirmCode == confirmMailViewModel.ConfirmCode)
-                return RedirectToAction("Index", "MyProfile");
+            {
+                user.EmailConfirmed = true;
+
+                await _userManager.UpdateAsync(user);
+
+                return RedirectToAction("Index", "Login");
+            }
 
             return View();
         }

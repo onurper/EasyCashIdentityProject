@@ -47,13 +47,13 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
 
                     SmtpClient smtpClient = new SmtpClient();
                     smtpClient.Connect("smtp.gmail.com", 587, false);
-                    smtpClient.Authenticate("peronur@gmail.com", "ktjvipuswonwgkzj");
+                    smtpClient.Authenticate("peronur@gmail.com", "ljggyqnecwotjeyl");
                     smtpClient.Send(mimeMessage);
                     smtpClient.Disconnect(true);
 
                     TempData["Mail"] = appUserRegisterDto.Email;
-
-                    return RedirectToAction("Index", nameof(RegisterController.Index)); //ConfirmMail
+                    var ss = nameof(ConfirmMailController.Index);
+                    return RedirectToAction("Index", "ConfirmMail");
                 }
                 else
                 {
