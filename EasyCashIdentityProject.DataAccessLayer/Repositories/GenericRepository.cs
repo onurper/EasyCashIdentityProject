@@ -5,16 +5,15 @@ namespace EasyCashIdentityProject.DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        private Context _context { get; set; }
-
-        public GenericRepository(Context context)
+        private readonly Context _context;
+        public GenericRepository(Context db)
         {
-            _context = context;
+            _context = db;
         }
-
         public void Delete(T t)
         {
             _context.Set<T>().Remove(t);
+            _context.SaveChanges();
         }
 
         public T GetById(int id)
@@ -35,11 +34,13 @@ namespace EasyCashIdentityProject.DataAccessLayer.Repositories
         public void Insert(T t)
         {
             _context.Set<T>().Add(t);
+            _context.SaveChanges();
         }
 
         public void Update(T t)
         {
             _context.Update(t);
+            _context.SaveChanges();
         }
 
         public void SaveChange()
