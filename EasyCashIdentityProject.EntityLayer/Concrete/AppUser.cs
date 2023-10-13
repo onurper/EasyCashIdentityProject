@@ -11,6 +11,7 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
         public string? Imageurl { get; set; }
         public int ConfirmCode { get; set; }
         public List<CustomerAccount> CustomerAccounts { get; set; }
+
         public AppUser()
         {
             Random rnd = new Random();

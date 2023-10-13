@@ -6,6 +6,7 @@ namespace EasyCashIdentityProject.EntityLayer.Concrete
     {
         [Key]
         public int CustomerAccountID { get; set; }
+
         public string CustomerAccountNumber { get; set; }
         public string CustomerCurrency { get; set; }
         public decimal CustomerAccountBalance { get; set; }

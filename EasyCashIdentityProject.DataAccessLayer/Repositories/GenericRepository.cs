@@ -6,10 +6,12 @@ namespace EasyCashIdentityProject.DataAccessLayer.Repositories
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
         private readonly Context _context;
+
         public GenericRepository(Context db)
         {
             _context = db;
         }
+
         public void Delete(T t)
         {
             _context.Set<T>().Remove(t);

@@ -30,6 +30,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
             appUserEditDto.Imageurl = values.Imageurl;
             return View(appUserEditDto);
         }
+
         [HttpPost]
         public async Task<IActionResult> Index(AppUserEditDto appUserEditDto)
         {

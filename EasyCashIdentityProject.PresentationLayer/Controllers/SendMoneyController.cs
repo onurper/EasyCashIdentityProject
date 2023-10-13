@@ -1,9 +1,9 @@
-﻿using EasyCashIdentityProject.EntityLayer.Concrete;
+﻿using EasyCashIdentityProject.BusinessLayer.Abstract;
+using EasyCashIdentityProject.DataAccessLayer.Concrete;
+using EasyCashIdentityProject.DTOLayer.Dtos.CustomerAccountProcessDtos;
+using EasyCashIdentityProject.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using EasyCashIdentityProject.DTOLayer.Dtos.CustomerAccountProcessDtos;
-using EasyCashIdentityProject.DataAccessLayer.Concrete;
-using EasyCashIdentityProject.BusinessLayer.Abstract;
 
 namespace EasyCashIdentityProject.PresentationLayer.Controllers
 {
@@ -11,6 +11,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly ICustomerAccountProcessService _customerAccountProcessService;
+
         public SendMoneyController(UserManager<AppUser> userManager, ICustomerAccountProcessService customerAccountProcessService)
         {
             _userManager = userManager;
@@ -18,8 +19,9 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string mycurrency)
         {
+            ViewBag.currency = mycurrency;
             return View();
         }
 

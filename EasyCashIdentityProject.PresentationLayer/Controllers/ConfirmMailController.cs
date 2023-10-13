@@ -8,6 +8,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
     public class ConfirmMailController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
+
         public ConfirmMailController(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
@@ -18,6 +19,7 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Index(ConfirmMailViewModel confirmMailViewModel)
         {

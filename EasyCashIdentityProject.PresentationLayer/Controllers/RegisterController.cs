@@ -16,12 +16,13 @@ namespace EasyCashIdentityProject.PresentationLayer.Controllers
         {
             _userManager = userManager;
         }
-        [HttpGet]
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Index(AppUserRegisterDto appUserRegisterDto)
         {
