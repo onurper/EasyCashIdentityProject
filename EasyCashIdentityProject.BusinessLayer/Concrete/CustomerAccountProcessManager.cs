@@ -26,5 +26,10 @@ namespace EasyCashIdentityProject.BusinessLayer.Concrete
         public CustomerAccountProcess TGetById(string id) => _customerAccountProcessDal.GetById(id);
 
         public List<CustomerAccountProcess> TGetList() => _customerAccountProcessDal.GetList();
+
+        public List<CustomerAccountProcess> MyLastProcess(int id)
+        {
+            return _customerAccountProcessDal.MyLastProcess(id);
+        }
     }
 }
